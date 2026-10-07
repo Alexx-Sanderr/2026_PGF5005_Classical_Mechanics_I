@@ -1,0 +1,14 @@
+# Python & Caches
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Ambientes Virtuais
+.venv/
+venv/
+env/
+final_project_env/

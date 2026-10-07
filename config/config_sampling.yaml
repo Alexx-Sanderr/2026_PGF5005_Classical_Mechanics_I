@@ -1,0 +1,48 @@
+simulation:
+  dt: 0.005           # Passo de tempo para o integrador
+  T_max: 900.0        # Tempo máximo da simulação
+  eps: 0.5            # Parâmetro de suavização 
+  R_corte: 50.0       # Raio de corte para detecção de ejeção
+
+stars:
+  masses: [1.0, 1.0, 1.0]
+  radii: [0.005, 0.005, 0.005]
+  positions:
+    - [1.0, 0.0, 0.0]
+    - [-0.5, 0.86602540378, 0.0]
+    - [-0.5, -0.86602540378, 0.0]
+  velocities:
+    - [0.0, 0.6, 0.0]
+    - [-0.5, -0.3, 0.0]
+    - [0.5, -0.3, 0.0]
+
+planets:
+  # Modos aceitos: "sampling" ou "explicit"
+  mode: "sampling"
+
+  # Configuração utilizada quando mode == "sampling"
+  sampling:
+    # Tipos aceitos: "random_uniform" ou "grid"
+    type: "random_uniform"
+    
+    # Parâmetros de contagem de partículas
+    N: 12             # Utilizado no modo "random_uniform"
+    N_r: 3           # Utilizado no modo "grid" (linhas da grade)
+    N_v: 4           # Utilizado no modo "grid" (colunas da grade)
+    
+    # Limites e geometrias orbitais iniciais
+    r_range: [0.5, 4.0] # [r_min, r_max]
+    v_range: [0.1, 1.5] # [v_min, v_max]
+    plane_z: 0.0        # Coordenada Z inicial das partículas
+    
+    # Semente para reprodutibilidade aleatória
+    seed: 42
+
+  # Configuração alternativa utilizada quando mode == "explicit"
+  # list:
+  #   p1:
+  #     position: [1.5, 0.0, 0.0]
+  #     velocity: [0.0, 0.8, 0.0]
+  #   p2:
+  #     position: [2.5, 0.0, 0.0]
+  #     velocity: [0.0, 0.6, 0.0]
